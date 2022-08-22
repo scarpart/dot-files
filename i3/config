@@ -197,5 +197,7 @@ bar {
   position top
 }
 
+bindsym $mod+z exec i3lock -c 000000
 exec_always feh --bg-fill ~/Downloads/I3-BACKGROUND/mysteryShack.jpg
-
+exec_always picom --experimental-backends -b
+exec "xautolock -detectsleep -time 30 -locker \"i3lock\""
