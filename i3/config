@@ -109,13 +109,13 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 set $workspace1 '1: Background'
-set $workspace2 '2: Terminals'
-set $workspace3 '3: Developer'
-set $workspace4 '4: Spotify'
+set $workspace2 '2: Firefox'
+set $workspace3 '3: Dev1'
+set $workspace4 '4: Dev2'
+set $workspace5 '5: Spotify'
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -127,7 +127,7 @@ bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace number $ws5
+bindsym $mod+5 workspace $workspace5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
@@ -139,17 +139,22 @@ bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# not sure why this doesn't work
 assign [class='Spotify'] $workspace4
 assign [class='Konsole'] $workspace2
 assign [class='Konsole'] $workspace2
 assign [class='Navigator'] $workspace3
+
+# i3 gaps stuff
+gaps inner 15
+gaps outer 5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -193,11 +198,11 @@ bar {
 	status_command /bin/bumblebee-status \
 		-m cpu memory battery time pasink pasource \
 		-p time.format="%H:%M" \
-		-t dracula-powerline
+		-t iceberg-rainbow
   position top
 }
 
 bindsym $mod+z exec i3lock -c 000000
-exec_always feh --bg-fill ~/Downloads/I3-BACKGROUND/mysteryShack.jpg
+exec_always feh --bg-fill ~/Downloads/I3-BACKGROUND/scene1.jpg
 exec_always picom --experimental-backends -b
 exec "xautolock -detectsleep -time 30 -locker \"i3lock\""
